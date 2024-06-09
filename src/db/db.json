@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "name": "Miss Dora Hansen",
+    "phone": "(872) 328-1742 x9286",
+    "email": "Leila.Leffler9@hotmail.com",
+    "job": "Senior Tactics Associate"
+  },
+  {
+    "name": "Ivan Fritsch Sr.",
+    "phone": "1-241-334-0156 x923",
+    "email": "Alva.Mueller61@yahoo.com",
+    "job": "Regional Data Technician"
+  },
+  {
+    "name": "Harvey Boyle",
+    "phone": "283.570.2194 x2994",
+    "email": "Amaya_Treutel11@gmail.com",
+    "job": "Senior Program Specialist"
+  },
+  {
+    "name": "Carla Fisher",
+    "phone": "(953) 224-1014",
+    "email": "Chelsie5@yahoo.com",
+    "job": "Customer Response Planner"
+  },
+  {
+    "name": "Andrew Hyatt",
+    "phone": "582.393.4634 x37603",
+    "email": "Cedrick6@yahoo.com",
+    "job": "Human Brand Representative"
+  }
+]
