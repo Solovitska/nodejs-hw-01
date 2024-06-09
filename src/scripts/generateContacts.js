@@ -1,19 +1,20 @@
-import { PATH_DB, DB_DATA } from '../constants/contacts.js';
+import { PATH_DB } from '../constants/contacts.js';
 
 import { createFakeContact } from '../utils/createFakeContact.js';
 import fs from 'node:fs/promises';
 
 const generateContacts = async (number) => {
-  if (typeof number === 'number' && number > 0) {
-    try {
-      const contacts = [...DB_DATA];
-      for (let i = 0; i < number; i++) {
-        contacts.push(createFakeContact());
-      }
-      fs.writeFile(PATH_DB, JSON.stringify(contacts));
-    } catch (error) {
-      console.log(error);
+  try {
+    const data = await fs.readFile(PATH_DB, 'utf-8');
+    const contacts = JSON.parse(data);
+    let newContacts = [];
+    for (let i = 0; i < number; i++) {
+      newContacts.push(createFakeContact());
     }
+    const newData = contacts.concat(newContacts);
+    await fs.writeFile(PATH_DB, JSON.stringify(newData, null, 2), 'utf-8');
+  } catch (error) {
+    console.log('Error handling db.json:', error);
   }
 };
 

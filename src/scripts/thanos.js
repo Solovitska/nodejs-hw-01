@@ -1,10 +1,17 @@
-import { PATH_DB, DB_DATA } from '../constants/contacts.js';
+import { PATH_DB } from '../constants/contacts.js';
 import fs from 'node:fs/promises';
 
 export const thanos = async () => {
-    const updatedContacts = DB_DATA.filter(() => Math.random() < 0.5);
-    fs.writeFile(PATH_DB, JSON.stringify(updatedContacts));
-  };
+  try {
+    const data = await fs.readFile(PATH_DB, 'utf-8');
+    const newData = JSON.parse(data).filter(() => Math.random() >= 0.5);
+    await fs.writeFile(PATH_DB, JSON.stringify(newData, null, 2));
+    console.log('Successfully completed!');
+  } catch (error) {
+    console.log('Error:', error);
+  }
+};
+
 
 
 await thanos();
